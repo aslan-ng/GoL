@@ -4,10 +4,12 @@ import matplotlib.pyplot as plt
 def show(matrix, name=''):
     # Define colormap
     from matplotlib.colors import ListedColormap
-    cmapmine = ListedColormap(['w','b'], N=2)
+    cmapmine = ListedColormap(['w','k'], N=2)
 
     fig, ax = plt.subplots(1, 1)
     ax.imshow(matrix, cmap=cmapmine, vmin=0, vmax=1)
+    ax.set_yticklabels([])
+    ax.set_xticklabels([])
     ax.set_title(name)
     plt.show()
 
