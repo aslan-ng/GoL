@@ -16,7 +16,7 @@ def show(matrix, name=''):
     plt.show()
 
 
-def animate(states, name='sample'):
+def animate(states, name, format):
     cmapmine = ListedColormap(['w','k'], N=2)
 
     fig, ax = plt.subplots(1, 1)
@@ -30,8 +30,12 @@ def animate(states, name='sample'):
         camera.snap()
     
     animation = camera.animate()
-    file_name = name + '.gif' 
-    animation.save(file_name)
+    if format=='gif':
+        file_name = name + '.gif'
+        animation.save(file_name, writer='Pillow')
+    elif format=='mp4':
+        file_name = name + '.mp4' 
+        animation.save(file_name, writer='ffmpeg')
     
 
 

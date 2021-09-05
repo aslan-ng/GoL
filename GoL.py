@@ -150,9 +150,9 @@ class Game:
             self.jrange = len(seed[0]) # convas j
 
     
-    def animate(self, name='sample'):
+    def animate(self, name='sample', format='gif'):
         from GoL.graphics import animate
-        animate(self.states, name)
+        animate(self.states, name, format)
 
 
 
@@ -164,11 +164,11 @@ if __name__ == "__main__":
     G = Game()
     G.load()
     #G.new(seed)
-    G.run(50)
+    #G.run(50)
     #G.run()
     #G.print(2)
     #G.show(2)
     #G.show(-1)
-    G.save()
-    G.animate()
+    #G.save()
+    G.animate(format='gif')
     
