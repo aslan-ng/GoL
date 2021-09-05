@@ -108,7 +108,7 @@ class Game:
     def save(self, file_name='sample'):
         file_name += '.txt'
         with open(file_name, 'w') as f:
-            for step in range(self.steps):
+            for step in range(len(self.states)):
                 f.writelines('step:'+str(step)+'\n')
                 for i in range(self.irange):
                     line = ''
@@ -149,19 +149,26 @@ class Game:
             self.irange = len(seed) # convas i
             self.jrange = len(seed[0]) # convas j
 
+    
+    def animate(self, name='sample'):
+        from GoL.graphics import animate
+        animate(self.states, name)
+
 
 
 if __name__ == "__main__":
     from GoL import seeds
-    seed = seeds.library['blinker']
-    #seed = seeds.random(4, 4)
+    #seed = seeds.library['blinker']
+    seed = seeds.random(50, 50)
 
     G = Game()
-    G.new(seed)
-    G.run(2)
-    G.run()
+    G.load()
+    #G.new(seed)
+    G.run(50)
+    #G.run()
     #G.print(2)
     #G.show(2)
-    G.show(-2)
-    #G.save()
-    #G.load()
+    #G.show(-1)
+    G.save()
+    G.animate()
+    
